@@ -1,38 +1,57 @@
+body,
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
-  text-align: center;
+  height: 450px;
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  background-position: 0 -350px;
+  background-image: url("https://dvbsinc.com/wp-content/uploads/2021/03/Workshops-Header-Background.png");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  margin: auto;
+  width: 40%;
+  padding: 10px;
+}
+.header {
+  margin-top: 50px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.addTodo input[type="text"] {
+  width: 250px;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.addTodo input[type="submit"] {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px;
+}
+.singleList {
+  margin-top: 2px;
+  background-color: aqua;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding-left: 10px;
 }
-
-.App-link {
-  color: #61dafb;
+.singleList input[type="checkbox"] {
+  padding: 100px;
 }
+.deleteIcon {
+  height: 25px;
+  width: 25px;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  display: inline-block;
+}
+.item {
+  padding-left: 10px;
+  width: 70%;
 }
