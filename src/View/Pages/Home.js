@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import TextInput from '../../TextInput';
+import TodoList from '../../TodoList';
 
 const Home = () => {
   const [todo, setTodo] = useState([
     { id: 1, task: 'Brush Your Teeth' },
     { id: 2, task: 'Take break fast' },
+    { id: 3, task: 'Take break fast' },
   ]);
 
   const handleSubmit = (e) => {
@@ -18,11 +21,13 @@ const Home = () => {
     <div>
       <h1>This is Home</h1>
 
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <input type='text' name='task' label='taksInput' />
         <input type='submit' value='sumbit' />
-      </form>
-      {todo.map((element) => (
+      </form> */}
+      <TextInput handleSubmit={handleSubmit}></TextInput>
+      <TodoList todo={todo} setTodo={setTodo}></TodoList>
+      {/* {todo.map((element) => (
         <h1 key={element.id}>
           {element.task}{' '}
           <button
@@ -33,7 +38,7 @@ const Home = () => {
             X
           </button>{' '}
         </h1>
-      ))}
+      ))} */}
     </div>
   );
 };
