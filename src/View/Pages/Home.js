@@ -1,21 +1,69 @@
-import React, { useState } from 'react';
-import TextInput from '../../TextInput';
-import TodoList from '../../TodoList';
+import React, { useEffect, useState } from "react";
+import TextInput from "../../TextInput";
+import TodoList from "../../TodoList";
 
 const Home = () => {
-  const [todo, setTodo] = useState([
-    { id: 1, task: 'Brush Your Teeth' },
-    { id: 2, task: 'Take break fast' },
-    { id: 3, task: 'Take break fast' },
-  ]);
+  const [todo, setTodo] = useState([]);
+  const [isChanged, setIsChanges] = useState(true);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/todolist")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("this is clicked");
+        setTodo(data);
+      });
+  }, [isChanged]);
+
+  // fetch('http://localhost:5000/addtodo', {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //   },
+  //   body: JSON.stringify(data),
+  // })
+  // .then((response) => response.json())
+  //
+  // .then((data) => {
+  //   console.log('Success:', data);
+  // })
+
+  // .catch((error) => {
+  //   console.error('Error:', error);
+  // });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(e.target.task.value);
-    setTodo([
-      ...todo,
-      { id: Math.floor(Math.random() * 1000), task: e.target.task.value },
-    ]);
+    // setTodo([
+    //   ...todo,
+    //   { id: Math.floor(Math.random() * 1000), task: e.target.task.value },
+    // ]);
+    //   fetch('https://fathomless-sands-30445.herokuapp.com/products', {
+    //     method: 'POST',
+    //     headers: { 'content-type': 'application/json' },
+    //     body: JSON.stringify(newProduct),
+    //   })
+    //     .then((res) => res.json())
+    //     .then((data) => setAddProductSuccess(data.acknowledged));
+    // };
+
+    fetch("http://localhost:5000/addtodo", {
+      method: "POST",
+      headers: { "content-Type": "application/json" },
+      body: JSON.stringify({
+        id: Math.floor(Math.random() * 1000),
+        task: e.target.task.value,
+      }),
+    })
+      .then((data) => {
+        console.log("Success:", data);
+        setIsChanges(!isChanged);
+      })
+
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
   return (
     <div>
