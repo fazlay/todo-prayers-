@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import TextInput from "../../TextInput";
-import TodoList from "../../TodoList";
+import React, { useEffect, useState } from 'react';
+import TextInput from '../../TextInput';
+import TodoList from '../../TodoList';
 
 const Home = () => {
   const [todo, setTodo] = useState([]);
   const [isChanged, setIsChanges] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/todolist")
+    fetch('https://todo-backend9864123.herokuapp.com/todolist')
       .then((res) => res.json())
       .then((data) => {
-        console.log("this is clicked");
+        console.log('this is clicked');
         setTodo(data);
       });
   }, [isChanged]);
@@ -48,17 +48,18 @@ const Home = () => {
     //     .then((data) => setAddProductSuccess(data.acknowledged));
     // };
 
-    fetch("http://localhost:5000/addtodo", {
-      method: "POST",
-      headers: { "content-Type": "application/json" },
+    fetch('https://todo-backend9864123.herokuapp.com/addtodo', {
+      method: 'POST',
+      headers: { 'content-Type': 'application/json' },
       body: JSON.stringify({
         id: Math.floor(Math.random() * 1000),
         task: e.target.task.value,
       }),
     })
       .then((data) => {
-        console.log("Success:", data);
+        console.log('Success:', data);
         setIsChanges(!isChanged);
+        e.target.task.value = '';
       })
 
       .catch((error) => {
@@ -67,8 +68,6 @@ const Home = () => {
   };
   return (
     <div>
-      <h1>This is Home</h1>
-
       {/* <form onSubmit={handleSubmit}>
         <input type='text' name='task' label='taksInput' />
         <input type='submit' value='sumbit' />
@@ -92,3 +91,5 @@ const Home = () => {
 };
 
 export default Home;
+
+//API --------- https://todo-backend9864123.herokuapp.com/

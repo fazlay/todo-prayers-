@@ -1,8 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import { Header } from './Header';
-import TextInput from './TextInput';
-import TodoList from './TodoList';
+
 import Home from './View/Pages/Home';
 
 function App() {

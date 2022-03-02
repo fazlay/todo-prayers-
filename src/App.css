@@ -9,7 +9,7 @@ body,
   background-repeat: no-repeat;
   background-size: 100vw;
   background-position: 0 -350px;
-  background-image: url("https://dvbsinc.com/wp-content/uploads/2021/03/Workshops-Header-Background.png");
+  background-image: url('https://dvbsinc.com/wp-content/uploads/2021/03/Workshops-Header-Background.png');
 }
 
 .container {
@@ -21,28 +21,42 @@ body,
   margin-top: 50px;
 }
 
-.addTodo input[type="text"] {
-  width: 250px;
-  padding: 10px;
+.addTodo input[type='text'] {
+  width: 450px;
+  padding: 10px 0px 10px 20px;
   border-radius: 5px;
   margin: 5px;
 }
 
-.addTodo input[type="submit"] {
+.addTodo input[type='submit'] {
   border: none;
-  padding: 10px;
+  width: 110px;
+  padding: 10px 0 10px 0;
   border-radius: 5px;
-  margin: 5px;
+  margin: 5px 12px 0 0;
+}
+
+.addTodo input[type='submit']:hover {
+  cursor: pointer;
+  background-color: beige;
+}
+
+.addTodo input[type='submit']:active {
+  transform: scale(0.85);
+  box-shadow: 3px 2px 25px 1px rgba(0, 0, 0, 0.25);
 }
 .singleList {
-  margin-top: 2px;
-  background-color: aqua;
+  margin-top: 5px;
+  background-color: #d8ffdb;
   display: flex;
   flex-direction: row;
   align-items: center;
   padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
 }
-.singleList input[type="checkbox"] {
+.singleList input[type='checkbox'] {
   padding: 100px;
 }
 .deleteIcon {
@@ -53,5 +67,5 @@ body,
 }
 .item {
   padding-left: 10px;
-  width: 70%;
+  width: 80%;
 }

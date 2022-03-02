@@ -1,5 +1,5 @@
-import React from "react";
-import "./App.css";
+import React from 'react';
+import './App.css';
 
 const TextInput = ({ handleSubmit }) => {
   return (
@@ -9,9 +9,9 @@ const TextInput = ({ handleSubmit }) => {
         <input type='submit' value='sumbit' />
       </form> */}
 
-      <form className="addTodo" onSubmit={handleSubmit}>
-        <input className="text" name="task" type="text" label="taksInput" />
-        <input type="submit" value="sumbit" />
+      <form className='addTodo' onSubmit={handleSubmit}>
+        <input className='text' name='task' type='text' label='taksInput' />
+        <input type='submit' value='sumbit' />
       </form>
     </div>
   );
