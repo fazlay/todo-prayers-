@@ -10,7 +10,7 @@ const TextInput = ({ handleSubmit }) => {
       </form> */}
 
       <form className='addTodo' onSubmit={handleSubmit}>
-        <input className='text' name='task' type='text' label='taksInput' />
+        <input className='text' name='task' type='text' />
         <input type='submit' value='sumbit' />
       </form>
     </div>
