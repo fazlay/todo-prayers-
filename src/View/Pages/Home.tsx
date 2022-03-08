@@ -37,7 +37,7 @@ const Home = () => {
   //   console.error('Error:', error);
   // });
 
-  const handleSubmit = (e:ChangeEvent<HTMLInputElement>) => {
+  const handleSubmit = (e:React.SyntheticEvent) => {
     e.preventDefault();
     // console.log(e.target.task.value);
     // setTodo([
@@ -52,25 +52,32 @@ const Home = () => {
     //     .then((res) => res.json())
     //     .then((data) => setAddProductSuccess(data.acknowledged));
     // };
+    const target = e.target as typeof e.target & {
+      id: { value: number };
+      task: { value: string };
+    };
 
     fetch('https://todo-backend9864123.herokuapp.com/addtodo', {
       method: 'POST',
       headers: { 'content-Type': 'application/json' },
       body: JSON.stringify({
         id: Math.floor(Math.random() * 1000),
-        task: e.target.task.value,
+        task: target.task.value,
       }),
     })
       .then((data) => {
         console.log('Success:', data);
         setIsChanges(!isChanged);
-        e.target.task.value = '';
+        target.task.value = '';
       })
 
       .catch((error) => {
         console.log(error.message);
       });
   };
+
+
+
   return (
     <div>
       {/* <form onSubmit={handleSubmit}>

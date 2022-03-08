@@ -1,11 +1,16 @@
 import React from 'react';
 import './App.css';
 
-const TodoList = (props) => {
+interface TodoType{
+  id: number,
+        task:string
+}
+const TodoList = (props:any
+  ) => {
   const { todo, setTodo } = props;
-  const handlleDelete = (element) => {
+  const handlleDelete = (element:TodoType) => {
     console.log(element);
-    setTodo(todo.filter((clicked) => clicked.id !== element.id));
+    setTodo(todo.filter((clicked:TodoType) => clicked.id !== element.id));
     fetch(`https://todo-backend9864123.herokuapp.com/todolist/${element.id}`, {
       method: 'DELETE',
     })
@@ -15,7 +20,7 @@ const TodoList = (props) => {
 
   return (
     <div>
-      {todo.map((element) => (
+      {todo.map((element:TodoType) => (
         <div key={element.id}>
           <div className='singleList'>
             <input type='checkbox' />
