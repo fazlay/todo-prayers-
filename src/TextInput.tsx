@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-const TextInput = ({ handleSubmit }) => {
+const TextInput = ({ handleSubmit }):void => {}
   return (
     <div>
       {/* <form onSubmit={handleSubmit}>
