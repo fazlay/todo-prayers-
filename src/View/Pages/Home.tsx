@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import TextInput from '../../TextInput';
 import TodoList from '../../TodoList';
 
+interface TodoType{
+  id: number,
+        task:string
+}
+
 const Home = () => {
-  const [todo, setTodo] = useState([]);
+  const [todo, setTodo] = useState<TodoType[]>([]);
   const [isChanged, setIsChanges] = useState(true);
 
   useEffect(() => {
@@ -32,9 +37,9 @@ const Home = () => {
   //   console.error('Error:', error);
   // });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e:ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    console.log(e.target.task.value);
+    // console.log(e.target.task.value);
     // setTodo([
     //   ...todo,
     //   { id: Math.floor(Math.random() * 1000), task: e.target.task.value },
