@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
 
-
-interface handleSubmitType {
+ interface dataInput{
   handleSubmit:()=>void
-}
-const TextInput = ({ handleSubmit }:handleSubmitType) => {
+ }
+
+const TextInput = (props) => {
+   const {handleSubmit}=props
   return (
     <div>
       <form className='addTodo' onSubmit={handleSubmit}>

@@ -12,7 +12,7 @@ const Home = () => {
   const [isChanged, setIsChanges] = useState(true);
 
   useEffect(() => {
-    fetch('https://todo-backend9864123.herokuapp.com/todolist')
+    fetch('http://localhost:5000/todolist')
       .then((res) => res.json())
       .then((data) => {
         console.log('this is clicked');
@@ -37,7 +37,7 @@ const Home = () => {
   //   console.error('Error:', error);
   // });
 
-  const handleSubmit = (e:React.SyntheticEvent) => {
+  const handleSubmit = (e:React.SyntheticEvent):void => {
     e.preventDefault();
     // console.log(e.target.task.value);
     // setTodo([
@@ -57,7 +57,7 @@ const Home = () => {
       task: { value: string };
     };
 
-    fetch('https://todo-backend9864123.herokuapp.com/addtodo', {
+    fetch('http://localhost:5000/addtodo', {
       method: 'POST',
       headers: { 'content-Type': 'application/json' },
       body: JSON.stringify({
